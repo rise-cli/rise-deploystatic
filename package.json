@@ -1,0 +1,19 @@
+{
+    "name": "appv2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node --test && echo \"✅ Tests Pass\"",
+        "release": "npm run test && npm publish"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "rise-aws-foundation": "^0.0.10",
+        "rise-cli-foundation": "^0.0.14",
+        "rise-deployinfra": "^0.0.3",
+        "rise-filesystem-foundation": "^0.0.1"
+    }
+}
