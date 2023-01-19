@@ -8,7 +8,7 @@ import process from 'node:process'
  * @param {string} stage
  * @param {string} region
  */
-export async function deployApplicationBucket(appName, stage, region) {
+export async function deployApplication(appName, stage, region, auth) {
     let bucketTemplate = aws.s3.makeBucket('Main')
     const stackName = appName + stage + '-bucket'
 
@@ -34,6 +34,14 @@ export async function deployApplicationBucket(appName, stage, region) {
             AmplifyId: {
                 Value: { 'Fn::GetAtt': ['AmplifyApp', 'AppId'] }
             }
+        }
+    }
+
+    if (auth) {
+        template.Resources.AmplifyApp.Properties.BasicAuthConfig = {
+            EnableBasicAuth: true,
+            Password: auth.password,
+            Username: auth.username
         }
     }
 

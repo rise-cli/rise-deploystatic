@@ -1,7 +1,7 @@
 import * as cli from 'rise-cli-foundation'
 import * as filesystem from 'rise-filesystem-foundation'
 import * as aws from 'rise-aws-foundation'
-import { deployApplicationBucket } from './utils/deployApplicationBucket.mjs'
+import { deployApplication } from './utils/deployApplication.mjs'
 import { deployToAmplify } from './utils/deployToAmplify.mjs'
 
 export async function deployStaticSite(config) {
@@ -30,10 +30,11 @@ export async function deployStaticSite(config) {
      * Deploy Infra
      */
     if (!config.app.bucketName) {
-        const res = await deployApplicationBucket(
+        const res = await deployApplication(
             deployName,
             config.app.stage,
-            config.app.region
+            config.app.region,
+            config.app.auth || null
         )
 
         config.app.bucketName = res.bucket

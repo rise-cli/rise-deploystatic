@@ -17,7 +17,13 @@ async function main() {
             stage: 'dev',
             region: 'us-east-1',
             bucketName: 'bucket-name',
-            appId: 'amplif-id'
+            appId: 'amplif-id',
+
+            // optional
+            auth: {
+                username: 'my-user-name',
+                password: 'my-password-that-is-at-least-8-characters'
+            }
         },
         zipConfig: {
             source: '/dist',

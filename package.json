@@ -1,8 +1,8 @@
 {
-    "name": "appv2",
-    "version": "1.0.0",
+    "name": "rise-deploystatic",
+    "version": "0.0.2",
     "description": "",
-    "main": "index.js",
+    "main": "index.mjs",
     "scripts": {
         "test": "node --test && echo \"✅ Tests Pass\"",
         "release": "npm run test && npm publish"
