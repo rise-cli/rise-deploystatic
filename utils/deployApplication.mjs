@@ -10,7 +10,7 @@ import process from 'node:process'
  */
 export async function deployApplication(appName, stage, region, auth) {
     let bucketTemplate = aws.s3.makeBucket('Main')
-    const stackName = appName + stage + '-bucket'
+    const stackName = `${appName}${stage}-bucket`
 
     const template = {
         Resources: {
